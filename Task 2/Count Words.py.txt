@@ -1,4 +1,0 @@
-import re
-s = input()
-words = re.findall(r'[A-Za-z]+', s)
-print(len(words))
