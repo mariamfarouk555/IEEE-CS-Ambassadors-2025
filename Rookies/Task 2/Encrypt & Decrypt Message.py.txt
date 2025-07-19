@@ -1,0 +1,10 @@
+Q = int(input())
+S = input()
+Original = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+Key =      "PgEfTYaWGHjDAmxQqFLRpCJBownyUKZXkbvzIdshurMilNSVOtec#@_!=.+-*/"
+if Q == 1:
+    mapping = dict(zip(Original, Key))  
+else:
+    mapping = dict(zip(Key, Original)) 
+result = ''.join(mapping[c] for c in S)
+print(result)
