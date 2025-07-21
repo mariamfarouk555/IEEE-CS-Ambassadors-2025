@@ -1,0 +1,55 @@
+def get_max(a):
+    return max(a)
+
+def get_min(a):
+    return min(a)
+
+def is_prime(x):
+    if x <= 1:
+        return False
+    if x <= 3:
+        return True
+    if x % 2 == 0 or x % 3 == 0:
+        return False
+    i = 5
+    while i * i <= x:
+        if x % i == 0 or x % (i + 2) == 0:
+            return False
+        i += 6
+    return True
+
+def is_palindrome(x):
+    return str(x) == str(x)[::-1]
+
+def divisor_count(x):
+    count = 0
+    i = 1
+    while i * i <= x:
+        if x % i == 0:
+            count += 1
+            if i != x // i:
+                count += 1
+        i += 1
+    return count
+
+def number_with_max_divisors(a):
+    best_num = a[0]
+    best_divs = divisor_count(a[0])
+    for num in a[1:]:
+        d = divisor_count(num)
+        if d > best_divs or (d == best_divs and num > best_num):
+            best_divs = d
+            best_num = num
+    return best_num
+n = int(input())
+a = list(map(int, input().split()))
+mx = get_max(a)
+mn = get_min(a)
+prime_cnt = sum(1 for num in a if is_prime(num))
+pal_cnt = sum(1 for num in a if is_palindrome(num))
+div_num = number_with_max_divisors(a)
+print("The maximum number :", mx)
+print("The minimum number :", mn)
+print("The number of prime numbers :", prime_cnt)
+print("The number of palindrome numbers :", pal_cnt)
+print("The number that has the maximum number of divisors :", div_num)

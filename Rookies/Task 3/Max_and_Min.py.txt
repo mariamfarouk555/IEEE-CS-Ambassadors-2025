@@ -1,0 +1,13 @@
+def find_min_max(n):
+    x = int(input())
+    mn = mx = x
+    for _ in range(n - 1):
+        x = int(input())
+        if x < mn:
+            mn = x
+        if x > mx:
+            mx = x
+
+    print(mn, mx)
+n = int(input())
+find_min_max(n)

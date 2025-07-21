@@ -1,0 +1,16 @@
+def shift_zeros(arr):
+    index = 0
+    n = len(arr)
+    for i in range(n):
+        if arr[i] != 0:
+            arr[index] = arr[i]
+            index += 1
+    while index < n:
+        arr[index] = 0
+        index += 1
+    print(" ".join(map(str, arr)))
+
+n = int(input())
+arr = [int(input()) for _ in range(n)]
+shift_zeros(arr)
+

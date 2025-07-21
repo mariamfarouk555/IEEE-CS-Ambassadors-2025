@@ -1,0 +1,10 @@
+def create_new_array(A, B, N):
+    for i in range(N):
+        print(B[i], end=" ")
+    for i in range(N):
+        print(A[i], end="\n" if i == N - 1 else " ")
+
+N = int(input())
+A = list(map(int, input().split()))
+B = list(map(int, input().split()))
+create_new_array(A, B, N)
